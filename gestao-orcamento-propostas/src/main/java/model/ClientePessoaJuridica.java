@@ -5,42 +5,40 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name  = "cliente_pj")
+@Table(name = "cliente_pj") 
 public class ClientePessoaJuridica extends Pessoa {
-	@Column(unique = true)
-	
-	private String cnpj;
-	private String razao_social;
-	
-	
-	public ClientePessoaJuridica(Integer id, String nome, String email, String telefone, String cnpj,
-			String razao_social) {
-		super(id, nome, email, telefone);
-		this.cnpj = cnpj;
-		this.razao_social = razao_social;
-	}
+
+    @Column(unique = true, nullable = false, length = 18) 
+    private String cnpj;
+
+    @Column(name = "razao_social", nullable = false)
+    private String razaoSocial;
+
+    public ClientePessoaJuridica() {
+        super();
+    }
 
 
-	public String getCnpj() {
-		return cnpj;
-	}
+    public ClientePessoaJuridica(String nome, String email, String telefone, String cnpj, String razaoSocial) {
+        super(nome, email, telefone);
+        this.cnpj = cnpj;
+        this.razaoSocial = razaoSocial;
+    }
 
 
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
-	}
+    public String getCnpj() {
+        return cnpj;
+    }
 
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
 
-	public String getRazao_social() {
-		return razao_social;
-	}
+    public String getRazaoSocial() {
+        return razaoSocial;
+    }
 
-
-	public void setRazao_social(String razao_social) {
-		this.razao_social = razao_social;
-	}
-	
-	
-	
-	
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
+    }
 }
