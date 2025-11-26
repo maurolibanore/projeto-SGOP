@@ -55,6 +55,7 @@ public abstract class DaoImplementacao<T> implements GenericDAO<T> {
 	public List<T> listarTodos() {
 		EntityManager em = JPAUTIL.getEntityManager();
 		return em.createQuery("SELECT t FROM " + classe.getSimpleName() + " t").getResultList();
+		
 	}
 	
 	
