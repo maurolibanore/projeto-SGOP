@@ -1,7 +1,11 @@
 package main;
 
+import java.time.LocalDate;
+
 import dao.ClientePessoaFisicaDAO;
+import dao.PropostaDAO;
 import model.ClientePessoaFisica;
+import model.Proposta;
 
 public class Main {
 
@@ -12,6 +16,12 @@ public class Main {
 		
 		dao.cadastrar(cf);
 
+		Proposta proposta = new Proposta(cf,LocalDate.now());
+		
+		PropostaDAO daoP = new PropostaDAO();
+		
+		
+		
 	}
 
 }
