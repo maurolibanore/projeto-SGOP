@@ -20,7 +20,7 @@ public class Main {
 		
 		PropostaDAO daoP = new PropostaDAO();
 		
-		
+		//daoP.cadastrar(proposta);
 		
 	}
 
