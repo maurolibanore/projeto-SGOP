@@ -10,8 +10,8 @@ import util.JPAUTIL;
 
 public class PropostaDAO extends DaoImplementacao<Proposta> {
 
-	public PropostaDAO(Class<Proposta> classe) {
-		super(classe);
+	public PropostaDAO() {
+		super(Proposta.class);
 	}
 	
 	public List<Proposta> buscarPorCliente(Long id){
