@@ -6,21 +6,38 @@ import dao.ClientePessoaFisicaDAO;
 import dao.PropostaDAO;
 import model.ClientePessoaFisica;
 import model.Proposta;
+import model.StatusProposta;
 
 public class Main {
 
 	public static void main(String[] args) {
-		ClientePessoaFisica cf = new ClientePessoaFisica("mauro","dmsadsa@gmail","44984219733","12487838914");
+		// ClientePessoaFisica cf = new ClientePessoaFisica();
 		
 		ClientePessoaFisicaDAO dao = new ClientePessoaFisicaDAO();
 		
-		dao.cadastrar(cf);
+		ClientePessoaFisica cf =  dao.buscarPorId((long) 1);
+		
+		
+		// System.out.println(cf.getNome());
+		
 
-		Proposta proposta = new Proposta(cf,LocalDate.now());
+		//Proposta proposta = new Proposta(cf,LocalDate.now());
 		
 		PropostaDAO daoP = new PropostaDAO();
 		
-		//daoP.cadastrar(proposta);
+		//daoP.cadastrar(proposta);	
+		
+		Proposta p = daoP.buscarPorId((long) 1);
+		
+		System.out.println(p.getStatus());
+		
+		System.out.println("-----------");
+		
+		p.setStatus(StatusProposta.ACEITA);
+		
+		daoP.atualizar(p);
+		
+		System.out.println(p.getStatus());
 		
 	}
 
