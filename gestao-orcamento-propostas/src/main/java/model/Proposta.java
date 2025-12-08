@@ -39,7 +39,7 @@ public class Proposta {
     private LocalDate dataValidade;
 
     @Column(name = "valor_total")
-    private Double valorTotal; 
+    private Double valorTotal = 0.0; 
 
     @Enumerated(EnumType.STRING)
     private StatusProposta status;
@@ -48,8 +48,6 @@ public class Proposta {
 
 
     public Proposta() {
-        this.valorTotal = 0.0;
-        this.itens = new ArrayList<>();
     }
 
     public Proposta(Pessoa cliente, LocalDate dataCriacao) {
@@ -60,15 +58,13 @@ public class Proposta {
 
 
     public void calcularValorTotal() {
-        double total = 0.0;
+        this.valorTotal = 0.0;
         
         for (ItemProposta item : this.itens) {
             if (item.getSubtotal() != null) {
-                total += item.getSubtotal();
+                this.valorTotal += item.getSubtotal();
             }
         }
-        
-        this.valorTotal = total;
     }
 
 
