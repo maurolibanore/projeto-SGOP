@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import dao.PropostaDAO;
+import model.Proposta;
+import model.StatusProposta;
 
 public class RelatorioService {
 	private PropostaDAO dao;
@@ -15,7 +17,7 @@ public class RelatorioService {
     public void gerarRelatorioVendasPorPeriodo(LocalDate inicio, LocalDate fim) {
         List<Proposta> propostas = dao.buscarPorPeriodo(inicio, fim);
         
-        System.out.println("--- Relatório de Propostas (" + inicio + " a " + fim + ") ---");
+        System.out.println("-- Relatório de Propostas (" + inicio + " a " + fim + ") --");
         
         double totalFaturado = 0.0;
         
