@@ -23,6 +23,7 @@ public class Preco {
     @Column(nullable = false)
     private Double valor; 
 
+    @Column(name = "data_vigencia", nullable = false)
     private LocalDate dataVigencia;
 
     private boolean ativo; 
@@ -31,6 +32,9 @@ public class Preco {
     @JoinColumn(name = "servico_id", nullable = false)
     private Servico servico;
 
+
+    public Preco() {
+    }
 
 
     public Preco(Double valor, LocalDate dataVigencia, boolean ativo, Servico servico) {
