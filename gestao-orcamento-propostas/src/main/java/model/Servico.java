@@ -29,7 +29,6 @@ public class Servico {
 
 
     public Servico() {
-        this.historicoPrecos = new ArrayList<>();
     }
 
     public Servico(String descricao) {
@@ -39,7 +38,6 @@ public class Servico {
     /**
      * Método auxiliar para descobrir qual o preço atual desse serviço.
      * Varre a lista e retorna o valor do preço que está marcado como ativo.
-     * Retorna null ou 0.0 se não tiver preço.
      */
     public Double getValorAtual() {
         for (Preco preco : this.historicoPrecos) {
