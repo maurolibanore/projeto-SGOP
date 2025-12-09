@@ -15,7 +15,7 @@ public class ServicoService {
 		this.dao = new ServicoDAO();
 	}
 	
-	public void cadastrarServico(String descricao, Double valorInicial) {
+	public Servico cadastrarServico(String descricao, Double valorInicial) {
 		//valida descricao unica
 		if(dao.buscarPorDescricao(descricao)!= null) {
 			throw new IllegalArgumentException("Já existe um serviço com essa descricao");	
@@ -28,6 +28,7 @@ public class ServicoService {
 		servico.getHistoricoPrecos().add(preco);
 		
 		dao.cadastrar(servico);
+		return servico;
 	}
 	
 	//RN REAJUSTE EM MASSA
