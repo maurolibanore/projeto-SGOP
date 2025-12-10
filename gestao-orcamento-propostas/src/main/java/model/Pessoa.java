@@ -11,7 +11,7 @@ import javax.persistence.InheritanceType;
 
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED) // faz com que crie as tabelas separadas entre pf e pj e p
 public abstract class Pessoa {
 
     @Id

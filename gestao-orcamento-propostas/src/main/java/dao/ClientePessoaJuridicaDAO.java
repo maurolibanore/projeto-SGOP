@@ -1,7 +1,7 @@
 package dao;
 
+import java.util.List;
 import javax.persistence.EntityManager;
-
 import model.ClientePessoaJuridica;
 import util.JPAUTIL;
 
@@ -13,8 +13,17 @@ public class ClientePessoaJuridicaDAO extends DaoImplementacao<ClientePessoaJuri
 
     public ClientePessoaJuridica buscarPorCnpj(String cnpj) {
         EntityManager em = JPAUTIL.getEntityManager();
-        return em.createQuery("SELECT c FROM ClientePessoaJuridica c WHERE c.cnpj = :cnpj", ClientePessoaJuridica.class)
+       
+        List<ClientePessoaJuridica> lista = em.createQuery("SELECT c FROM ClientePessoaJuridica c WHERE c.cnpj = :cnpj", ClientePessoaJuridica.class)
                 .setParameter("cnpj", cnpj)
-                .getSingleResult();
+                .getResultList();
+        
+        em.close(); 
+
+        if (lista.isEmpty()) {
+            return null; 
+        } else {
+            return lista.get(0); 
+        }
     }
 }

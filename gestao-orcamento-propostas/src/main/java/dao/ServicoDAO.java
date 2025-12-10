@@ -1,7 +1,7 @@
 package dao;
 
+import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException; 
 import model.Servico;
 import util.JPAUTIL;
 
@@ -12,18 +12,18 @@ public class ServicoDAO extends DaoImplementacao<Servico> {
     }
     
     public Servico buscarPorDescricao(String descricao) {
-        EntityManager em = JPAUTIL.getEntityManager(); 
+        EntityManager em = JPAUTIL.getEntityManager();
         
-        try {
-            return em.createQuery("SELECT s FROM Servico s WHERE s.descricao = :n", Servico.class)
-                     .setParameter("n", descricao)
-                     .getSingleResult();
-                     
-        } catch (NoResultException e) {
+        List<Servico> lista = em.createQuery("SELECT s FROM Servico s WHERE s.descricao = :n", Servico.class)
+                 .setParameter("n", descricao)
+                 .getResultList();
+        
+        em.close(); 
+
+        if (lista.isEmpty()) {
             return null;
-            
-        } finally {
-            em.close(); 
+        } else {
+            return lista.get(0);
         }
     }
 }
