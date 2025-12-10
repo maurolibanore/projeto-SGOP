@@ -3,54 +3,40 @@
   <groupId>gestao-orcamento-propostas</groupId>
   <artifactId>gestao-orcamento-propostas</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
   <dependencies>
 
-<dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.6.10.Final</version>
+    </dependency>
 
-<groupId>org.hibernate</groupId>
+    <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>2.2</version>
+    </dependency>
 
-<artifactId>hibernate-core</artifactId>
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.200</version>
+    </dependency>
 
-<version>5.6.10.Final</version>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.33</version>
+    </dependency>
 
-</dependency>
+    <dependency>
+        <groupId>com.github.javafaker</groupId>
+        <artifactId>javafaker</artifactId>
+        <version>1.0.2</version>
+    </dependency>
 
-
-
-<dependency>
-
-<groupId>javax.persistence</groupId>
-
-<artifactId>javax.persistence-api</artifactId>
-
-<version>2.2</version>
-
-</dependency>
-
-
-
-<dependency>
-
-<groupId>com.h2database</groupId>
-
-<artifactId>h2</artifactId>
-
-<version>1.4.200</version>
-
-</dependency>
-
-
-
-<dependency>
-
-<groupId>mysql</groupId>
-
-<artifactId>mysql-connector-java</artifactId>
-
-<version>8.0.33</version>
-
-</dependency>
-
-</dependencies>
+  </dependencies>
+  
   <name>gestao-orcamento-propostas</name>
 </project>
