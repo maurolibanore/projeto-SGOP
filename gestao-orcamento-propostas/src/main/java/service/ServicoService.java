@@ -31,6 +31,29 @@ public class ServicoService {
 		return servico;
 	}
 	
+	public void atualizarPreco(Long idServico, Double novoValor) {
+        Servico servico = dao.buscarPorId(idServico);
+        
+        if (servico == null) {
+            throw new IllegalArgumentException("Serviço não encontrado com ID: " + idServico);
+        }
+
+        //Desativa o preço atual antigo
+        for (Preco p : servico.getHistoricoPrecos()) {
+            if (p.isAtivo()) {
+                p.setAtivo(false);
+                break; // Achou o ativo, desativa e para o loop
+            }
+        }
+
+        Preco novoPreco = new Preco(novoValor, LocalDate.now(), true, servico);
+        
+        //Adiciona na lista de histórico
+        servico.getHistoricoPrecos().add(novoPreco);
+
+        dao.atualizar(servico);
+    }
+	
 	//RN REAJUSTE EM MASSA
 	public void reajustarTodosServicos(Double percentual) {
         List<Servico> todosServicos = dao.listarTodos();
