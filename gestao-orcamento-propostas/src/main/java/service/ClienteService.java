@@ -11,7 +11,7 @@ public class ClienteService {
 	private ClientePessoaJuridicaDAO pjDAO;
 	
 	public ClienteService () {
-		this.pfDAO = new ClientePessoaFisicaDAO();
+		this.pfDAO = new ClientePessoaFisicaDAO();  // economiza memoria em nao ficar repetindo toda vez
 		this.pjDAO = new ClientePessoaJuridicaDAO();
 	
 	}

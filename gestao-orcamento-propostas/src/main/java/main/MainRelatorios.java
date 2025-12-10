@@ -20,13 +20,13 @@ public class MainRelatorios {
             System.out.println("\n>>> Relatório de Vendas (" + inicioAno + " até " + hoje + ")...");
             relatorioService.gerarRelatorioVendasPorPeriodo(inicioAno, hoje);
 
-            Long idClienteTeste = 1L;
+            Long idClienteTeste = (long) 1;
             
             System.out.println("\n>>> Histórico do Cliente " + idClienteTeste + "...");
             relatorioService.gerarRelatorioPorCliente(idClienteTeste);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace();  // mostrar o erro detalhado
         } finally {
             JPAUTIL.close();
         }
