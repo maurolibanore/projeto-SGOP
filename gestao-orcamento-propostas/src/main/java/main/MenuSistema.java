@@ -120,7 +120,7 @@ public class MenuSistema {
                         System.out.println("Proposta não encontrada.");
                     }
                 } catch (Exception e) {
-                    System.out.println("Erro ao buscar.");
+                    System.out.println("Erro");
                 }
             }
             else if (opcao == 7) {
@@ -153,7 +153,7 @@ public class MenuSistema {
                     System.out.println("Concluído! Todos os serviços foram atualizados.");
                     
                 } catch (Exception e) {
-                    System.out.println("Erro ao reajustar: " + e.getMessage());
+                    System.out.println("Erro : " + e.getMessage());
                 }
             }
             else if (opcao == 0) {
